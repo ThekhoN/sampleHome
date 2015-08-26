@@ -1,0 +1,21 @@
+{
+  "name": "Basic Boilerplate",
+  "version": "0.0.0",
+  "authors": [
+    "Thekho Ngaosathe <bennetonss@hotmail.com>"
+  ],
+  "description": "Basic Susy and Dependencies with jQuery",
+  "keywords": [
+    "Susy",
+    "BoilerpPlate",
+    "jQuery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

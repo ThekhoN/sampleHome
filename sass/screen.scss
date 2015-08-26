@@ -1,0 +1,908 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "susy";
+@import "breakpoint";
+@import "bourbon/bourbon";
+@import "scut";
+$susy:( columns:12, gutters:0.096, gutter-position:after, math:fluid, output:float);
+$primaryFam: 'Arvo',
+serif;
+$shopFam:'Century Gothic',
+'segoe ui',
+serif;
+$padValue:0.6em 0.2em;
+$padValue_separator:0.6em 0.8em;
+$roundCornerV:1em;
+$pageW:72%;
+$innerCircBG: #E6E7E8;
+$primary: #FFBA00;
+$textCol: #212121;
+$active:#FFBA00;
+$active_darker:#c04d00;
+$separator: #cccccc;
+
+/*media query variables*/
+
+$min768: min-width 768px;
+$max768: max-width 769px;
+$max480: max-width 480px;
+$min-max320_480: 300px 480px;
+$min-max480_768: 480px 768px;
+
+/* end mq */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+//End of Resets//
+#mainWrapperX_Homepromotion {
+    @include container(1664px);
+    font-family: $primaryFam;
+    color: $textCol;
+    font-size: 12px;
+    line-height: 1;
+    ul {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+    @include breakpoint($min768) {
+        font-size: 16px;
+        font-size: 1em;
+    }
+}
+
+.contRofl_clr {
+    width: 100%;
+    float: left;
+    @include clearfix;
+}
+
+.sectionX {
+    @extend .contRofl_clr;
+    margin-bottom: 1em;
+    ul {
+        position: relative;
+    }
+}
+
+.conditionalX {
+    display: none;
+    
+    @include breakpoint($max480){
+        display: inline;
+    }
+}
+
+.hiddenAddXcontX {
+    position: relative;
+    padding-bottom: 3em;
+    .viewMoreX99 {
+        font-family: $shopFam;
+        position: absolute;
+        right: 5%;
+        bottom: 0;
+        z-index: 1;
+        background: $active_darker;
+        color: #ffffff;
+        padding: 0.6em;
+        cursor: pointer;
+        .relInnerX {
+            position: relative;
+            @extend .contRofl_clr;
+            display: block;
+            &:after {
+                content: ". . .";
+                position: absolute;
+                left: -1.8em;
+                bottom: -0.4em;
+                z-index: 2;
+                font-size: 2em;
+                font-weight: bold;
+                width: 100%;
+                height: 100%;
+                color: $active_darker;
+            }
+        }
+        &:hover {
+            background: $textCol;
+            color: #ffffff;
+        }
+    }
+}
+
+.inactiveX {
+    display: none;
+}
+
+.flexImg99 {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+.viewMoreX {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.875em;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: $shopFam;
+    @include transition(all 0.3s ease);
+    opacity: 1;
+    //with icon-font<span class="icon-right-dir"></span>
+}
+
+.wrapX {
+    //background: #cccccc;
+    @include span(12 of 12);
+    height: 200px;
+}
+
+.contentX {
+    @include span(8 of 12 first);
+    background: rgba(0, 0, 0, 0.3);
+    height: 200px;
+}
+
+.centeredX {
+    @include span(4 of 8);
+    background: rgba(247, 142, 86, 0.8);
+    height: 200px;
+    margin-left: span(2 of 8) + gutter(8);
+}
+
+
+/**/
+
+.header99X {
+    @extend .contRofl_clr;
+}
+
+.externalNavX {
+    @extend .contRofl_clr;
+    background: #ffffff;
+    ul {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        @include breakpoint($min768) {
+            width: 30%;
+        }
+        li {
+            width: 50%;
+            float: left;
+            text-align: center;
+            a {
+                width: 100%;
+                float: left;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: $active;
+                padding: 0.6em 0;
+                text-decoration: none;
+                background: #ffffff;
+                &.activeX {
+                    color: $textCol;
+                    background: $active;
+                }
+                &:hover {
+                    color: $textCol;
+                    background: $active;
+                }
+            }
+        }
+    }
+}
+
+.mainNavContx {
+    @extend .contRofl_clr;
+    background: $active;
+    ul {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        @include breakpoint($min768) {
+            width: 58%;
+        }
+        li {
+            width: 25%;
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 0em;
+            border-bottom: 0.6em solid $textCol;
+            @include breakpoint($min768) {
+                padding: 1em;
+                border-bottom: 0;
+            }
+            a {
+                width: 100%;
+                float: left;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: $textCol;
+                text-decoration: none;
+                background: $active;
+                padding: $padValue;
+                box-sizing: border-box;
+                font-size: 0.875em;
+                border-right: 1px solid $textCol;
+                border-top: 1px solid $textCol;
+                border-bottom: 1px solid $textCol;
+                @include breakpoint($min768) {
+                    border-radius: $roundCornerV;
+                    border: 1px solid $textCol;
+                }
+                &.activeX {
+                    background: $textCol;
+                    color: #ffffff;
+                }
+                &:hover {
+                    background: $textCol;
+                    color: #ffffff;
+                }
+            }
+            /*ziza*/
+            &:last-child a {
+                @include breakpoint($max768) {
+                    border-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.abs_CenterItX {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.aboutStoreX99 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.wrapAllX {
+    @extend .contRofl_clr;
+    @include breakpoint($min768) {
+        width: $pageW;
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+.relBannerContX {
+    @extend .contRofl_clr;
+    position: relative;
+    .innerBannerXContX {
+        width: 100%;
+        float: left;
+        position: relative;
+        overflow: hidden;
+        @include breakpoint($min768) {
+            width: $pageW;
+            margin: 0 auto;
+            float: none;
+        }
+        img {
+            @extend .flexImg99;
+        }
+        .mainHomeLogo {
+            width: span(6.5);
+            margin: 0 auto;
+            img {
+                @extend .flexImg99;
+            }
+        }
+        .abs_CenterItX {
+            top: 50%;
+        }
+        .homeSaleLogo {
+            position: absolute;
+            right: 0;
+            top: 30%;
+            width: span(3 last);
+            img {
+                @extend .flexImg99;
+                padding: 0 18%;
+                box-sizing: border-box;
+            }
+        }
+    }
+    .bgActiveX {
+        position: absolute;
+        width: 100%;
+        height: 54%;
+        top: 0;
+        left: 0;
+        background: $active;
+    }
+}
+
+.dividerX {
+    width: 100%;
+    padding: 0 1em;
+    box-sizing: border-box;
+    float: left;
+    margin-top: 1.6em;
+    margin-bottom: 0.2em;
+    @include breakpoint($min768) {
+        width: span(6);
+        margin-left: span(3) + gutter(12);
+    }
+    h2 {
+        @include scut-side-lined;
+        padding: 0.2em 0;
+        span {
+            background: $active;
+            border: 1px solid $textCol;
+            padding: $padValue_separator;
+            box-sizing: border-box;
+            border-radius: $roundCornerV;
+            text-transform: uppercase;
+            box-sizing: border-box;
+            font-size: 12px;
+            letter-spacing: 0;
+            display: inline-block;
+            @include breakpoint($min768) {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.sectionX {
+    &>.contRofl_clr {
+        margin-top: 2em;
+    }
+}
+
+.offerX {
+    
+    box-sizing: border-box;
+    border: 1px solid $separator;
+    @include breakpoint($min768) {
+        border: 0;
+    }
+}
+
+.brandsX99 {
+    @extend .contRofl_clr;
+    ul {
+        @extend .contRofl_clr;
+        overflow: hidden;
+        @include breakpoint($min768) {
+            width: 92%;
+            margin: 0 auto;
+            float: none;
+        }
+        li {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 0 1.2em;
+            margin-bottom: 1.6em;
+            min-height: 10em;
+            a {
+                color: $textCol;
+                @include transition(color 0.3s ease);
+            }
+            @include breakpoint($min768) {
+                width: 25%;
+                min-height: 9.500em;
+            }
+            @include breakpoint($min-max480_768) {
+                width: 33.33%;
+            }
+            &:hover a {
+                color: $active_darker;
+            }
+            &:hover .innerOfferContX {
+                border: 1px solid $active_darker;
+                background: rgba(0, 0, 0, 0.02);
+            }
+        }
+    }
+    .innerOfferContX {
+        @extend .contRofl_clr;
+        border: 1px solid $separator;
+        padding: 0.6em;
+        border-radius: $roundCornerV;
+        box-sizing: border-box;
+    }
+    .offerAboutX {
+        margin-top: 1em;
+    }
+}
+
+.innerOfferContX {
+    float: left;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.icon99X {
+    @extend .contRofl_clr;
+    padding: 0 10%;
+    box-sizing: border-box;
+    img {
+        @extend .flexImg99;
+    }
+}
+
+.offerAboutX {
+    @extend .contRofl_clr;
+    font-size: 1.125em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.catX99 {
+    @extend .contRofl_clr;
+    ul {
+        @extend .contRofl_clr;
+        overflow: hidden;
+        @include breakpoint($min768) {
+            width: 92%;
+            margin: 0 auto;
+            float: none;
+        }
+        li {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 1.2em;
+            margin-bottom: 1.6em;
+            min-height: 11.000em;
+            a {
+                color: $textCol;
+                @include transition(all 0.3s ease);
+            }
+            @include breakpoint($min768) {
+                width: 33.33%;
+                min-height: 8.438em;
+            }
+            @include breakpoint($min-max480_768) {
+                width: 33.33%;
+            }
+            &:hover a {
+                color: $active_darker;
+            }
+            &:hover .offerAboutX {
+                border-bottom: 1px solid $active_darker;
+            }
+            &:hover {
+                background: rgba(0, 0, 0, 0.05);
+            }
+        }
+    }
+    .relOfferCont99X {
+        width: 68%;
+        float: left;
+        padding: 0 1em 1em 1em;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .aboutStoreX99 {
+        font-size: 0.875em;
+        text-align: left;
+    }
+    .offerAboutX {
+        margin: 0.1em 0;
+        text-align: left;
+        border-bottom: 1px solid $textCol;
+        padding: 0.2em 0;
+    }
+    .viewMoreX {
+        position: absolute;
+        bottom: -0.6em;
+        left: 1em;
+        display: inline-block;
+        width: auto;
+    }
+}
+
+.cat_icon99X {
+    width: 32%;
+    float: left;
+    img {
+        @extend .flexImg99;
+    }
+}
+
+#roomX01 {
+    background: url(../images/room01.jpg) no-repeat;
+    background-size: cover;
+    height: 37em;
+    background-position: bottom left;
+}
+
+.rooms_sectionContX {
+    @extend .contRofl_clr;
+    box-sizing: border-box;
+    padding: 0 5%;
+    .longBannerX {
+        width: 35%;
+        float: left;
+        box-sizing: border-box;
+        padding-right: 0.500em;
+        @include breakpoint($min-max320_480) {
+            width: 100%;
+            padding: 0 0 0.500em 0;
+        }
+    }
+    .horizontalContX {
+        width: 65%;
+        float: left;
+        img {
+            @extend .flexImg99;
+        }
+        @include breakpoint($min-max320_480) {
+            width: 100%;
+        }
+    }
+    a {
+        color: $textCol;
+        &:hover .overlayX {
+            color: $active_darker;
+            background: rgba(255, 255, 255, 1);
+        }
+    }
+}
+
+.innerBG_setX {
+    position: relative;
+    @extend .contRofl_clr;
+    background-size: cover;
+}
+
+.overlayX {
+    background: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+    position: static;
+    float: left;
+    width: 100%;
+    border-bottom: 0px solid transparent;
+    @include transition(all 0.3s ease);
+    @include breakpoint($min768) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .aboutStoreX99 {
+        display: inline-block;
+        float: left;
+        width: auto;
+    }
+    .viewMoreX {
+        display: inline-block;
+        float: right;
+        width: auto;
+    }
+    & >.contRofl_clr {
+        padding: 0.8em;
+        box-sizing: border-box;
+    }
+}
+
+.firstHorzX {
+    @extend .contRofl_clr;
+    position: relative;
+    margin-bottom: 0.5em;
+}
+
+.second1stX {
+    width: 50.547%;
+    float: left;
+    padding-right: 0.5em;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.third1stX {
+    width: 49.453%;
+    float: left;
+    position: relative;
+}
+
+
+/*hover styles*/
+.mainCirc_ContX99 {
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: $textCol;
+    padding: 2em 0;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 2em;
+    height: 200px;
+    @include breakpoint($max768) {
+        width: 50%;
+        margin-bottom: 1em;
+        padding: 0 1em;
+        height: auto;
+    }
+    .f_circ01 {
+        opacity: 1;
+        &.activeX {
+            @include transform(translate(0, 0) scale(1));
+            opacity: 1;
+        }
+        @include breakpoint($min768) {
+            top: -15%;
+            left: 50%;
+            margin-left: -52px;
+            @include transform(translate(5em, 5em) scale(0.2));
+            opacity: 0;
+        }
+    }
+    .f_circ02 {
+        &.activeX {
+            @include transform(translate(0, 0) scale(1));
+            opacity: 1;
+        }
+        @include breakpoint($min768) {
+            top: 23%;
+            left: 0;
+            @include transform(translate(5em, -5em) scale(0.2));
+            opacity: 0;
+        }
+    }
+    .f_circ03 {
+        &.activeX {
+            @include transform(translate(0, 0) scale(1));
+            opacity: 1;
+        }
+        @include breakpoint($min768) {
+            top: 23%;
+            right: 0;
+            @include transform(translate(-5em, 5em) scale(0.2));
+            opacity: 0;
+        }
+    }
+    .f_circ04 {
+        &.activeX {
+            @include transform(translate(0, 0) scale(1));
+            opacity: 1;
+        }
+        @include breakpoint($min768) {
+            bottom: -15%;
+            left: 50%;
+            margin-left: -52px;
+            @include transform(translate(-5em, -5em) scale(0.2));
+            opacity: 0;
+        }
+    }
+    .mainCirc_X {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto;
+        border-radius: 90em;
+        background: $innerCircBG;
+        font-family: $primaryFam;
+        position: relative;
+        box-sizing: border-box;
+        border: 0.563em solid $primary;
+        cursor: pointer;
+        @include transform(scale(1));
+        @include transition(all 0.3s ease);
+        @include breakpoint($min768) {
+            @include transform(scale(1));
+            width: 150px;
+            height: 150px;
+        }
+        .aboutStoreX99 {
+            display: block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 28%;
+            font-size: 1.125em;
+            font-weight: bold;
+            text-transform: uppercase;
+            @include transition(all 0.3s ease);
+            @include breakpoint($min768) {
+                @include transform(scale(1));
+            }
+        }
+        .viewMoreX {
+            display: block;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 18%;
+            font-size: 0.875em;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-family: $shopFam;
+            @include transition(all 0.3s ease);
+            opacity: 0;
+            @include breakpoint($min768) {
+                opacity: 1;
+            }
+        }
+        &.activeX {
+            @include transform(scale(1));
+            @include breakpoint($min768) {
+                @include transform(scale(0.6));
+            }
+        }
+    }
+}
+
+.mainCirc_X.activeX .aboutStoreX99 {
+    @include breakpoint($min768) {
+        @include transform(scale(1.6));
+    }
+}
+
+.mainCirc_X.activeX .viewMoreX {
+    opacity: 0;
+}
+
+.innerAbsoluteCirc {
+    position: relative;
+    width: 100%;
+    float: left;
+    text-align: left;
+    background: $active_darker;
+    color: #ffffff;
+    display: block;
+    @include transition(all 0.3s ease);
+    border-bottom: 2px solid $separator;
+    @include breakpoint($min768) {
+        position: absolute;
+        width: 104px;
+        height: 104px;
+        border-radius: 90em;
+        text-align: left;
+        float: none;
+        z-index: 1;
+        border: 2px solid #f2f2f2;
+        background: $primary;
+        border-bottom: 0px solid $separator;
+    }
+    .innerRel {
+        position: relative;
+        float: left;
+        height: 100%;
+        width: 100%;
+        @include breakpoint($max768) {
+            box-sizing: border-box;
+            padding: 0.6em 1em 1.6em 1em;
+        }
+    }
+    .aboutStoreX99 {
+        font-family: $primaryFam;
+        font-weight: normal;
+        letter-spacing: 0px;
+        display: block;
+        font-size: 0.875em;
+        text-transform: none;
+        margin-bottom: 2%;
+        text-align: center;
+        @include breakpoint($min768) {
+            margin-top: 15%;
+            margin-bottom: 0;
+        }
+    }
+    .iconX {
+        display: block;
+        margin-top: 20%;
+        font-size: 2em;
+    }
+    .viewMoreX {
+        display: block;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 10%;
+        font-size: 0.625em;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-family: $shopFam;
+        left: 0;
+    }
+    &:hover {
+        background: $active_darker;
+    }
+}
+
+.x99 {
+    line-height: 1em;
+    font-size: 2em;
+    padding: 0 0.2em;
+}
+
+
+/*end of hover styles*/
+
+.hiddenContX99 {
+    @extend .contRofl_clr;
+    display: block;
+    background: $separator;
+    @include breakpoint($min768) {
+        display: none;
+    }
+    ul {
+        @extend .contRofl_clr;
+        li {
+            float: left;
+            box-sizing: border-box;
+            font-size: 0.875em;
+            text-transform: none;
+            padding: 0 0.3em;
+            overflow: hidden;
+            a {
+                display: inline-block;
+                width: 100%;
+                float: left;
+                padding: 0.6em 0em 0.2em 0;
+                border-bottom: 2px solid $active;
+                &:hover {
+                    font-weight: bold;
+                    color: $active_darker;
+                    border-bottom: 2px solid $active_darker;
+                }
+            }
+
+        }
+    }
+}
+
+
+/*sd resets*/
+
+.navFixedSmall {
+    position: static!important
+}
+
+.gutterPromotionHiddenOnOtherPages {
+    display: none!important
+}
+
+.bottomFreezeDiv,
+#breadCrumbWrapper,
+#rightLangWrapper {
+    display: none!important;
+    z-index: -1!important;
+    margin: 0!important;
+    padding: 0!important
+}
+
+.header-fixed,
+.hd-rvmp.header-fixed,
+#headerTop,
+#headerFixed {
+    position: static!important
+}
+
+#content_wrapper {
+    width: 100%!important;
+    padding: 0!important
+}
+
+.fixed-header-slide {
+    min-height: 0!important
+}
+
+#dock.dock {
+    position: static!important;
+    top: -100px;
+    display: none
+}
